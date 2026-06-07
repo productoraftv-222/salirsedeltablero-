@@ -762,9 +762,7 @@ body {
 /* ─── FOOTER ─── */
 footer {
   padding: 38px 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 .footer-logo {
@@ -980,7 +978,7 @@ footer {
         Tablero
       </h1>
       <p class="hero-desc">Crónica de una generación que creyó cambiar la política y el periodismo (y acabó rota)</p>
-      <p class="hero-author">Galería fotográfica</p>
+      <a href="https://salirsedeltablero.es/#galeria" class="sec-nav-btn" style="margin-top:16px;text-decoration:none;">Galería fotográfica</a>
     </div>
 
     <div class="hero-cover">
@@ -1255,10 +1253,7 @@ footer {
 
 <div class="chess-strip"></div>
 
-<footer>
-  <div class="footer-logo">Salirse del Tablero</div>
-  <div class="footer-info">Sergio Gregori · Penguin Random House · Ediciones B</div>
-</footer>
+
 
 <!-- ── LIGHTBOX ── -->
 <div class="lightbox" id="lightbox">
@@ -1799,6 +1794,84 @@ document.addEventListener('dragstart', function(e) {
   if (e.target.tagName === 'IMG') {
     e.preventDefault();
     return false;
+  }
+});
+</script>
+
+<!-- ─── BANNER COOKIES ─── -->
+<div id="cookieBanner" style="
+  display:none;
+  position:fixed;
+  bottom:0; left:0; right:0;
+  z-index:99999;
+  background:#181818;
+  border-top:2px solid #DB1338;
+  padding:20px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+  font-family:'Space Grotesk',sans-serif;
+">
+  <p style="margin:0;max-width:680px;font-size:14px;color:#F0EBE1;line-height:1.7;">
+    Este sitio web emplea cookies de Google para ofrecer sus servicios y analizar el tráfico. La información sobre tu uso de este sitio web se comparte con Google. Al utilizar el sitio web, aceptas el uso de cookies.
+  </p>
+  <div style="display:flex;gap:12px;flex-shrink:0;">
+    <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener" style="
+      display:inline-block;
+      padding:11px 22px;
+      font-size:9px;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      color:#F0EBE1;
+      border:1px solid rgba(255,255,255,0.3);
+      text-decoration:none;
+      font-family:'Space Grotesk',sans-serif;
+    ">Más información</a>
+    <button onclick="acceptCookies()" style="
+      display:inline-block;
+      padding:11px 22px;
+      font-size:9px;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      background:#DB1338;
+      color:white;
+      border:none;
+      cursor:pointer;
+      font-family:'Space Grotesk',sans-serif;
+    ">Acepto</button>
+  </div>
+</div>
+
+<!-- ─── AVISO LEGAL ─── -->
+<footer style="
+  background:#0C0C0C;
+  border-top:1px solid rgba(255,255,255,0.07);
+  padding:60px 70px 48px;
+  font-family:'Space Grotesk',sans-serif;
+">
+  <p style="font-family:'Bebas Neue',sans-serif;font-size:44px;letter-spacing:3px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.08);white-space:nowrap;"><span style="color:#DB1338;">SALIRSE DEL TABLERO</span><span style="color:rgba(255,255,255,0.15);margin:0 18px;font-size:28px;">|</span><span style="color:#ffffff;">AVISO LEGAL</span></p>
+  <p style="max-width:900px;font-size:13px;color:rgba(240,235,225,0.6);line-height:1.9;margin-bottom:14px;">
+    En cumplimiento de la <strong style="color:rgba(240,235,225,0.85);">Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE)</strong>, se informa que el titular de este sitio web es <strong style="color:rgba(240,235,225,0.85);">Sergio Gregori</strong>. El acceso y uso de este sitio web atribuye la condición de usuario e implica la aceptación de las presentes condiciones. El contenido de este sitio tiene carácter meramente informativo y divulgativo. Queda prohibida la reproducción total o parcial de los contenidos sin autorización expresa del titular.
+  </p>
+  <p style="max-width:900px;font-size:13px;color:rgba(240,235,225,0.6);line-height:1.9;margin-bottom:14px;">
+    De conformidad con el <strong style="color:rgba(240,235,225,0.85);">Reglamento (UE) 2016/679 (RGPD)</strong> y la <strong style="color:rgba(240,235,225,0.85);">Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD)</strong>, los datos personales que pudieran recabarse a través de este sitio serán tratados conforme a la normativa vigente. El usuario puede ejercer sus derechos de acceso, rectificación, supresión y portabilidad a través del siguiente <a href="https://linktr.ee/gregorimarugan" target="_blank" rel="noopener" style="color:#DB1338;text-decoration:none;">formulario de contacto</a>.
+  </p>
+  <p style="max-width:900px;font-size:13px;color:rgba(240,235,225,0.6);line-height:1.9;margin-bottom:40px;">
+    Este sitio utiliza cookies de Google Analytics para análisis de tráfico. Para más información consulta la <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener" style="color:#DB1338;text-decoration:none;">política de cookies de Google</a>.
+  </p>
+  <p style="padding-top:24px;border-top:1px solid rgba(255,255,255,0.07);font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:4px;color:#ffffff;text-align:center;">© 2026 Sergio Gregori. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+function acceptCookies() {
+  document.getElementById('cookieBanner').style.display = 'none';
+  localStorage.setItem('cookiesAccepted', '1');
+}
+window.addEventListener('DOMContentLoaded', function() {
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookieBanner').style.display = 'flex';
   }
 });
 </script>
